@@ -4,7 +4,7 @@
 
 Полное описание проекта хранится в уроке «Проект. Улучшение baseline-модели» на учебной платформе.
 
-Здесь укажите имя вашего бакета: 
+Здесь укажите имя вашего бакета: ```s3-student-mle-20240228-2fd44f5a96```
 
 # Установка репозитория и зависимостей
 
@@ -20,3 +20,17 @@ source .venv_sprint02/bin/activate
 pip install -r requirements.txt 
 ```
 # Установка mlflow
+
+```
+export $(cat .env | xargs)
+sh mlflow_server/server_start.sh 
+```
+Для регистрации первой версии модели запустить скрипт 
+```
+python mlflow_server/register_model.py 
+```
+В проекте модель зарегистрирована под именем:
+```REGISTRY_MODEL_NAME = "estate_model"```
+
+
+
