@@ -12,17 +12,20 @@ from catboost import CatBoostRegressor
 
 from sklearn.metrics import mean_absolute_percentage_error, mean_absolute_error, mean_squared_error
 
+# Почитал поподробнее про environ. Согласен, что как будто избыточно, но в оправдание скажу, что этот код предлагался в 
+# Cпринт 5/7: Контроль за экспериментами → Тема 1/1: Контроль за экспериментами → Урок 5/15 Сценарии развертывания MLflow. Практика.
+# Буквально эти две строчки с комментариями, что такой код подтягивает перменные из .env:
+#os.environ["AWS_ACCESS_KEY_ID"] = os.getenv("AWS_ACCESS_KEY_ID") # получаем id ключа бакета, к которому подключён MLFlow, из .env
+#os.environ["AWS_SECRET_ACCESS_KEY"] = os.getenv("AWS_SECRET_ACCESS_KEY") # получаем ключ бакета, к которому подключён MLFlow, из .env
 
+#os.environ["DB_DESTINATION_HOST"] = os.getenv("DB_DESTINATION_HOST")
+#os.environ["DB_DESTINATION_PORT"] = os.getenv("DB_DESTINATION_PORT")
+#os.environ["DB_DESTINATION_NAME"] = os.getenv("DB_DESTINATION_NAME")
+#os.environ["DB_DESTINATION_USER"] = os.getenv("DB_DESTINATION_USER")
+#os.environ["DB_DESTINATION_PASSWORD"] = os.getenv("DB_DESTINATION_PASSWORD")
 
-os.environ["DB_DESTINATION_HOST"] = os.getenv("DB_DESTINATION_HOST")
-os.environ["DB_DESTINATION_PORT"] = os.getenv("DB_DESTINATION_PORT")
-os.environ["DB_DESTINATION_NAME"] = os.getenv("DB_DESTINATION_NAME")
-os.environ["DB_DESTINATION_USER"] = os.getenv("DB_DESTINATION_USER")
-os.environ["DB_DESTINATION_PASSWORD"] = os.getenv("DB_DESTINATION_PASSWORD")
 
 os.environ["MLFLOW_S3_ENDPOINT_URL"] = "https://storage.yandexcloud.net" #endpoint бакета от YandexCloud
-os.environ["AWS_ACCESS_KEY_ID"] = os.getenv("AWS_ACCESS_KEY_ID") # получаем id ключа бакета, к которому подключён MLFlow, из .env
-os.environ["AWS_SECRET_ACCESS_KEY"] = os.getenv("AWS_SECRET_ACCESS_KEY") # получаем ключ бакета, к которому подключён MLFlow, из .env
 
 # определяем глобальные переменные
 # поднимаем MLflow локально
